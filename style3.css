@@ -1,0 +1,94 @@
+
+.botoes-flutuantes {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
+.botao-flutuante {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.botao-flutuante:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+.botao-whatsapp {
+  background: #25D366;
+}
+
+.botao-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+
+/* Texto que aparece ao passar o mouse */
+.botao-flutuante::after {
+  position: absolute;
+  right: 70px;
+  background: #17251d;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: 0.3s;
+}
+
+.botao-whatsapp::after {
+  content: "Fale conosco";
+}
+
+.botao-instagram::after {
+  content: "Siga no Instagram";
+}
+
+.botao-flutuante:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ajuste para celular */
+@media (max-width: 600px) {
+
+  .botoes-flutuantes {
+    right: 15px;
+    bottom: 15px;
+    gap: 10px;
+  }
+
+  .botao-flutuante {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+
+  .botao-flutuante::after {
+    display: none;
+  }
+
+}

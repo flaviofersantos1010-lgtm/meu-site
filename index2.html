@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FlautaFácil - Aprenda Flauta Transversal</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :root {
+      --verde: #2ecc71;
+      --verde-escuro: #159957;
+      --azul: #2563eb;
+      --fundo: #f4f8f6;
+      --texto: #17251d;
+      --branco: #ffffff;
+      --cinza: #64748b;
+    }
+
+    body {
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: linear-gradient(135deg, #123c2a, #159957);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #a7f3c5;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #a7f3c5;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 7%;
+
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(46,204,113,.25),
+          transparent 30%
+        ),
+        linear-gradient(135deg, #ecfff4, #f4f8f6);
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--verde-escuro);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #52645a;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: var(--verde-escuro);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #107b45;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--verde-escuro);
+      margin-left: 10px;
+      border: 2px solid #d9e9df;
+    }
+
+    .hero-flute {
+      font-size: 180px;
+      filter: drop-shadow(10px 15px 15px rgba(0,0,0,.15));
+      transform: rotate(-15deg);
+    }
+
+    /* =========================
+       SEÇÕES
+    ========================= */
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--cinza);
+    }
+
+    /* =========================
+       AULAS
+    ========================= */
+
+    #aulas {
+      background: white;
+    }
+
+    .lesson {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background: #f5faf7;
+      padding: 25px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      border-left: 5px solid var(--verde);
+    }
+
+    .lesson-number {
+      width: 55px;
+      height: 55px;
+      background: var(--verde);
+      color: white;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .lesson-info {
+      flex: 1;
+    }
+
+    .lesson-info h3 {
+      margin-bottom: 4px;
+    }
+
+    .lesson-info p {
+      color: var(--cinza);
+    }
+
+    .lesson button {
+      background: var(--azul);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       PROGRESSO
+    ========================= */
+
+    .progress-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+      text-align: center;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        var(--verde),
+        var(--verde-escuro)
+      );
+
+      transition: .5s;
+    }
+
+    .progress-text {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       METRÔNOMO
+    ========================= */
+
+    .metronome {
+      max-width: 450px;
+      margin: auto;
+      text-align: center;
+      background: #17251d;
+      color: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    }
+
+    .bpm {
+      font-size: 70px;
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    .metronome input {
+      width: 100%;
+      accent-color: var(--verde);
+    }
+
+    .beat {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #475569;
+      margin: 20px auto;
+      transition: .1s;
+    }
+
+    .beat.active {
+      background: var(--verde);
+      transform: scale(1.4);
+    }
+
+    /* =========================
+       DICAS
+    ========================= */
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .tip {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 5px solid var(--verde);
+    }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    /* =========================
+       CONTATO
+    ========================= */
+
+    #contato {
+      background: linear-gradient(
+        135deg,
+        #ecfff4,
+        #f7faf8
+      );
+    }
+
+    .contato-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contato-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--texto);
+
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+
+      transition: .3s;
+    }
+
+    .contato-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    }
+
+    .contato-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .contato-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .contato-card p {
+      color: var(--cinza);
+    }
+
+    .whatsapp {
+      border-top: 5px solid #25D366;
+    }
+
+    .instagram {
+      border-top: 5px solid #E1306C;
+    }
+
+    .telefone {
+      border-top: 5px solid #2563eb;
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0,0,0,.65);
+
+      align-items: center;
+      justify-content: center;
+
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 600px;
+      width: 100%;
+      padding: 35px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       BOTÕES FLUTUANTES
+    ========================= */
+
+    .botoes-flutuantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .botao-flutuante {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      transition: .3s;
+    }
+
+    .botao-flutuante:hover {
+      transform: scale(1.12) translateY(-3px);
+    }
+
+    .botao-whatsapp {
+      background: #25D366;
+    }
+
+    .botao-instagram {
+      background: linear-gradient(
+        135deg,
+        #833AB4,
+        #E1306C,
+        #F77737
+      );
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #123c2a;
+      color: white;
+      text-align: center;
+      padding: 40px 7%;
+    }
+
+    footer p {
+      opacity: .8;
+      margin-top: 8px;
+    }
+
+    /* =========================
+       RESPONSIVO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 13px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-flute {
+        font-size: 100px;
+        margin-top: 40px;
+      }
+
+      .tips {
+        grid-template-columns: 1fr;
+      }
+
+      .contato-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson {
+        flex-wrap: wrap;
+      }
+
+      .botoes-flutuantes {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .botao-flutuante {
+        width: 52px;
+        height: 52px;
+        font-size: 25px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       MENU
+  ========================= -->
+
+  <header>
+
+    <div class="logo">
+      🎵 Flauta<span>Fácil</span>
+    </div>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#aulas">Aulas</a>
+      <a href="#exercicios">Exercícios</a>
+      <a href="#dicas">Dicas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       INÍCIO
+  ========================= -->
+
+  <main>
+
+    <section class="hero" id="inicio">
+
+      <div class="hero-text">
+
+        <h1>
+          Aprenda
+          <span>flauta transversal</span>
+          do zero.
+        </h1>
+
+        <p>
+          Um espaço simples e divertido para você aprender
+          postura, respiração, notas, escalas e músicas.
+        </p>
+
+        <a href="#aulas" class="btn btn-primary">
+          Começar a aprender
+        </a>
+
+        <a href="#exercicios" class="btn btn-secondary">
+          Praticar
+        </a>
+
+      </div>
+
+      <div class="hero-flute">
+        🎶
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         AULAS
+    ========================= -->
+
+    <section id="aulas">
+
+      <div class="section-title">
+
+        <h2>
+          Curso de Flauta Transversal
+        </h2>
+
+        <p>
+          Aprenda passo a passo, começando pelos fundamentos.
+        </p>
+
+      </div>
+
+
+      <div class="lesson">
+
+        <div class="lesson-number">
+          1
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>
+            Conhecendo a flauta
+          </h3>
+
+          <p>
+            Conheça as partes da flauta e aprenda
+            como montá-la corretamente.
+          </p>
+
+        </div>
+
+        <button onclick="abrirAula(1)">
+          Ver aula
+        </button>
+
+      </div>
+
+
+      <div class="lesson">
+
+        <div class="lesson-number">
+          2
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>
+            Postura e posição
+          </h3>
+
+          <p>
+            Aprenda a segurar a flauta e encontrar
+            uma posição confortável.
+          </p>
+
+        </div>
+
+        <button onclick="abrirAula(2)">
+          Ver aula
+        </button>
+
+      </div>
+
+
+      <div class="lesson">
+
+        <div class="lesson-number">
+          3
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>
+            Respiração
+          </h3>
+
+          <p>
+            Aprenda exercícios para controlar o ar
+            e produzir um som estável.
+          </p>
+
+        </div>
+
+        <button onclick="abrirAula(3)">
+          Ver aula
+        </button>
+
+      </div>
+
+
+      <div class="lesson">
+
+        <div class="lesson-number">
+          4
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>
+            Primeiras notas
+          </h3>
+
+          <p>
+            Comece a produzir suas primeiras notas
+            na flauta transversal.
+          </p>
+
+        </div>
+
+        <button onclick="abrirAula(4)">
+          Ver aula
+        </button>
+
+      </div>
+
+
+      <div class="lesson">
+
+        <div class="lesson-number">
+          5
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>
+            Escalas
+          </h3>
+
+          <p>
+            Pratique escalas e desenvolva coordenação
+            entre dedos e respiração.
+          </p>
+
+        </div>
+
+        <button onclick="abrirAula(5)">
+          Ver aula
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRESSO
+    ========================= -->
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>
+          Seu progresso
+        </h2>
+
+        <p>
+          Acompanhe sua evolução durante os estudos.
+        </p>
+
+      </div>
+
+
+      <div class="progress-container">
+
+        <div class="progress-text">
+
+          <span id="porcentagem">
+            20%
+          </span>
+
+          concluído
+
+        </div>
+
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            id="barra">
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          onclick="aumentarProgresso()">
+
+          Concluir próxima aula
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         METRÔNOMO
+    ========================= -->
+
+    <section
+      id="exercicios"
+      style="background:white">
+
+      <div class="section-title">
+
+        <h2>
+          Área de exercícios
+        </h2>
+
+        <p>
+          Pratique seu ritmo com o metrônomo.
+        </p>
+
+      </div>
+
+
+      <div class="metronome">
+
+        <h2>
+          🎵 Metrônomo
+        </h2>
+
+        <div
+          class="bpm"
+          id="bpm">
+
+          80
+
+        </div>
+
+
+        <input
+          type="range"
+          id="bpmRange"
+          min="40"
+          max="200"
+          value="80"
+          oninput="alterarBPM()"
+        >
+
+
+        <div
+          class="beat"
+          id="beat">
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          id="metroButton"
+          onclick="alternarMetronomo()">
+
+          ▶ Iniciar
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DICAS
+    ========================= -->
+
+    <section id="dicas">
+
+      <div class="section-title">
+
+        <h2>
+          Dicas para iniciantes
+        </h2>
+
+        <p>
+          Pequenos hábitos fazem uma grande diferença.
+        </p>
+
+      </div>
+
+
+      <div class="tips">
+
+
+        <div class="tip">
+
+          <strong>
+            🌬️ Controle a respiração
+          </strong>
+
+          Não tente tocar usando apenas a força.
+          Desenvolva um fluxo de ar constante
+          e confortável.
+
+        </div>
+
+
+        <div class="tip">
+
+          <strong>
+            🧘 Relaxe os ombros
+          </strong>
+
+          Evite tensão desnecessária enquanto toca.
+          Uma postura relaxada facilita a execução.
+
+        </div>
+
+
+        <div class="tip">
+
+          <strong>
+            🎵 Estude devagar
+          </strong>
+
+          Comece os exercícios lentamente e aumente
+          a velocidade gradualmente.
+
+        </div>
+
+
+        <div class="tip">
+
+          <strong>
+            ⏱️ Pratique todos os dias
+          </strong>
+
+          Mesmo 15 minutos de prática diária podem
+          ajudar na construção de consistência.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================= -->
+
+    <section id="contato">
+
+      <div class="section-title">
+
+        <h2>
+          Entre em contato
+        </h2>
+
+        <p>
+          Fale conosco ou acompanhe nossas novidades.
+        </p>
+
+      </div>
+
+
+      <div class="contato-cards">
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          class="contato-card whatsapp"
+          href="https://wa.me/5562999999999?text=Olá!%20Quero%20aprender%20flauta%20transversal."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="contato-icon">
+            💬
+          </div>
+
+          <h3>
+            WhatsApp
+          </h3>
+
+          <p>
+            Fale conosco pelo WhatsApp
+          </p>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="contato-card instagram"
+          href="https://www.flavio.henf.com.br/meu INSTAGRAM/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="contato-icon">
+            📸
+          </div>
+
+          <h3>
+            Instagram
+          </h3>
+
+          <p>
+            Siga nosso perfil no Instagram
+          </p>
+
+        </a>
+
+
+        <!-- TELEFONE -->
+
+        <a
+          class="contato-card telefone"
+          href="tel:+5562992949745"
+        >
+
+          <div class="contato-icon">
+            📞
+          </div>
+
+          <h3>
+            Telefone
+          </h3>
+
+          <p>
+            (62) 992949745
+          </p>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       MODAL DAS AULAS
+  ========================= -->
+
+  <div
+    class="modal"
+    id="modal"
+  >
+
+    <div class="modal-content">
+
+      <span
+        class="close"
+        onclick="fecharAula()">
+
+        ×
+
+      </span>
+
+
+      <h2 id="modalTitulo">
+        Aula
+      </h2>
+
+      <br>
+
+      <p id="modalTexto">
+      </p>
+
+      <br>
+
+      <button
+        class="btn btn-primary"
+        onclick="fecharAula()">
+
+        Entendi!
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <h2>
+      🎵 FlautaFácil
+    </h2>
+
+    <p>
+      Aprenda flauta transversal de forma simples,
+      organizada e divertida.
+    </p>
+
+    <p>
+      © 2026 FlautaFácil
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       BOTÕES FLUTUANTES
+  ========================= -->
+
+  <div class="botoes-flutuantes">
+
+    <!-- WHATSAPP -->
+    <a
+      href="https://wa.me/5562992949745?text=Olá!%20Quero%20aprender%20flauta%20transversal."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="botao-flutuante botao-whatsapp"
+      aria-label="WhatsApp"
+      title="Fale conosco pelo WhatsApp"
+    >
+      💬
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a
+      href="https://www.instagram.com/SEU_INSTAGRAM/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="botao-flutuante botao-instagram"
+      aria-label="Instagram"
+      title="Siga-nos no Instagram"
+    >
+      📸
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       AULAS
+    ========================= */
+
+    const aulas = {
+
+      1: {
+        titulo: "Aula 1 — Conhecendo a flauta",
+        texto:
+          "A flauta transversal é normalmente formada por três partes principais: cabeça, corpo e pé. Antes de tocar, aprenda a montar e desmontar o instrumento com cuidado."
+      },
+
+      2: {
+        titulo: "Aula 2 — Postura",
+        texto:
+          "Mantenha a coluna confortável, os ombros relaxados e a cabeça em uma posição natural. Evite apertar a flauta excessivamente com as mãos."
+      },
+
+      3: {
+        titulo: "Aula 3 — Respiração",
+        texto:
+          "Pratique inspirações tranquilas e depois solte o ar lentamente. O objetivo inicial é aprender a controlar o fluxo de ar."
+      },
+
+      4: {
+        titulo: "Aula 4 — Primeiras notas",
+        texto:
+          "Comece produzindo sons longos e estáveis. Não tenha pressa para tocar músicas: primeiro procure desenvolver um som confortável e consistente."
+      },
+
+      5: {
+        titulo: "Aula 5 — Escalas",
+        texto:
+          "Depois de conhecer algumas notas, pratique escalas lentamente. Use o metrônomo para manter o ritmo e aumente a velocidade apenas quando estiver confortável."
+      }
+
+    };
+
+
+    function abrirAula(numero) {
+
+      document.getElementById("modalTitulo").textContent =
+        aulas[numero].titulo;
+
+      document.getElementById("modalTexto").textContent =
+        aulas[numero].texto;
+
+      document.getElementById("modal").style.display =
+        "flex";
+
+    }
+
+
+    function fecharAula() {
+
+      document.getElementById("modal").style.display =
+        "none";
+
+    }
+
+
+    /* =========================
+       PROGRESSO
+    ========================= */
+
+    let progresso = 20;
+
+
+    function aumentarProgresso() {
+
+      if (progresso < 100) {
+        progresso += 20;
+      }
+
+      document.getElementById("barra").style.width =
+        progresso + "%";
+
+      document.getElementById("porcentagem").textContent =
+        progresso + "%";
+
+    }
+
+
+    /* =========================
+       METRÔNOMO
+    ========================= */
+
+    let bpm = 80;
+    let tocando = false;
+    let intervalo;
+
+
+    function alterarBPM() {
+
+      bpm =
+        document.getElementById("bpmRange").value;
+
+      document.getElementById("bpm").textContent =
+        bpm;
+
+
+      if (tocando) {
+
+        pararMetronomo();
+        iniciarMetronomo();
+
+      }
+
+    }
+
+
+    function alternarMetronomo() {
+
+      if (tocando) {
+
+        pararMetronomo();
+
+      } else {
+
+        iniciarMetronomo();
+
+      }
+
+    }
+
+
+    function iniciarMetronomo() {
+
+      tocando = true;
+
+      document.getElementById("metroButton").textContent =
+        "⏹ Parar";
+
+
+      const tempo = 60000 / bpm;
+
+
+      intervalo = setInterval(() => {
+
+        const beat =
+          document.getElementById("beat");
+
+
+        beat.classList.add("active");
+
+
+        setTimeout(() => {
+
+          beat.classList.remove("active");
+
+        }, 100);
+
+      }, tempo);
+
+    }
+
+
+    function pararMetronomo() {
+
+      tocando = false;
+
+      clearInterval(intervalo);
+
+      document.getElementById("metroButton").textContent =
+        "▶ Iniciar";
+
+    }
+
+
+    /* =========================
+       FECHAR MODAL
+    ========================= */
+
+    window.onclick = function(event) {
+
+      const modal =
+        document.getElementById("modal");
+
+
+      if (event.target === modal) {
+
+        fecharAula();
+
+      }
+
+    };
+
+  </script>
+
+</body>
+
+</html>
