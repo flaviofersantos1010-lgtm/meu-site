@@ -1,0 +1,100 @@
+/* =========================
+   BOTÕES FLUTUANTES
+========================= */
+
+.botoes-flutuantes {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.botao-flutuante {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+}
+
+.botao-flutuante:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* WhatsApp */
+.botao-whatsapp {
+  background: #25D366;
+}
+
+/* Instagram */
+.botao-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+
+/* Texto ao passar o mouse */
+.botao-flutuante::after {
+  position: absolute;
+  right: 72px;
+  background: #17251d;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: 0.3s;
+}
+
+.botao-whatsapp::after {
+  content: "WhatsApp";
+}
+
+.botao-instagram::after {
+  content: "Instagram";
+}
+
+.botao-flutuante:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Celular */
+@media (max-width: 600px) {
+
+  .botoes-flutuantes {
+    right: 15px;
+    bottom: 15px;
+    gap: 10px;
+  }
+
+  .botao-flutuante {
+    width: 55px;
+    height: 55px;
+    font-size: 27px;
+  }
+
+  .botao-flutuante::after {
+    display: none;
+  }
+
+}
